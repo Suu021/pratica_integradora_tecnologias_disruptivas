@@ -23,7 +23,7 @@ function Header() {
               <MenuIcon />
               */}
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontSize: '1.5em' }}>
               Gerenciamento de Projetos
             </Typography>
           </Toolbar>

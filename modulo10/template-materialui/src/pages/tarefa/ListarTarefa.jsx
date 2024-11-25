@@ -18,6 +18,8 @@ import Modal from '@mui/material/Modal';
 import CriarTarefa from './CriarTarefa';
 import EditarTarefa from './EditarTarefa';
 
+import '../../tabela.css';
+
 //A função abaixo é usada para criar o array contendo os dados iniciais da listagem de tarefas.
 function createData(
   idTarefa: number,
@@ -33,12 +35,12 @@ function createData(
 
 //Definição do array contendo os dados iniciais da listagem de tarefas
 const initialRows = [
-  createData(1, 'Tarefa 1', 'Descrição da Tarefa 1', '2022-01-01', '2022-01-02', 'Concluída', 'Recurso 1'),
-  createData(2, 'Tarefa 2', 'Descrição da Tarefa 2', '2022-01-03', '2022-01-04', 'Em Andamento', 'Recurso 2'),
-  createData(3, 'Tarefa 3', 'Descrição da Tarefa 3', '2022-01-04', '2022-01-05', 'Em Andamento', 'Recurso 3'),
-  createData(4, 'Tarefa 4', 'Descrição da Tarefa 4', '2022-01-05', '2022-01-06', 'Em Andamento', 'Recurso 4'),
-  createData(5, 'Tarefa 5', 'Descrição da Tarefa 5', '2022-01-06', '2022-01-07', 'Em Andamento', 'Recurso 5'),
-  createData(6, 'Tarefa 6', 'Descrição da Tarefa 6', '2022-01-07', '2022-01-08', 'Aguardando', 'Recurso 6'),
+  createData(1, 'Tarefa 1', 'Fazer o fork do projeto', '2024-11-25', '2024-11-25', 'Concluída', 'Recurso 1'),
+  createData(2, 'Tarefa 2', 'Editar a interface', '2024-11-25', '2024-11-25', 'Em Andamento', 'Recurso 2'),
+  createData(3, 'Tarefa 3', 'Editar o conteúdo', '2024-11-25', '2024-11-25', 'Em Andamento', 'Recurso 3'),
+  createData(4, 'Tarefa 4', 'Testar os ajustes', '2024-11-25', '2024-11-25', 'Em Andamento', 'Recurso 4'),
+  createData(5, 'Tarefa 5', 'Commitar no GitHub', '2024-11-25', '2024-11-25', 'Em Andamento', 'Recurso 5'),
+  createData(6, 'Tarefa 6', 'Entregar o projeto', '2024-11-25', '2024-11-25', 'Aguardando', 'Recurso 6'),
 ];
 
 //Componente ListarTarefa
@@ -91,15 +93,15 @@ const ListarTarefa = () => {
         <CardContent>
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead>
-                <TableRow>
-                    <TableCell>#</TableCell>
-                    <TableCell>Título</TableCell>
-                    <TableCell align="right">Descrição</TableCell>
-                    <TableCell align="right">Data de Início</TableCell>
-                    <TableCell align="right">Data de Finalização</TableCell>
-                    <TableCell align="right">Status</TableCell>
-                    <TableCell align="right">Recurso</TableCell>
+                <TableHead sx={{ backgroundColor: 'orange'}}>
+                <TableRow >
+                    <TableCell sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >#</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Título</TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Descrição</TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Data de Início</TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Data de Finalização</TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Status</TableCell>
+                    <TableCell align="right" sx={{ fontWeight: 'bold', fontSize: '1.2em' }} >Recurso</TableCell>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left"></TableCell>
                 </TableRow>
@@ -108,6 +110,7 @@ const ListarTarefa = () => {
                 {tarefas.map((row, indice) => (
                     <TableRow
                     key={indice}
+                    className={ indice % 2 === 0? 'even-row': 'odd-row'}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                       <TableCell component="th" scope="row">
@@ -134,8 +137,8 @@ const ListarTarefa = () => {
             </TableContainer>
         </CardContent>
         <CardActions>
-            <Button size="small" variant="contained" onClick={handleOpen}>Criar Tarefa</Button>
-            <Button size="small" variant="outlined">Cancelar</Button>
+            <Button size="medium" variant="contained" onClick={handleOpen}>Criar Tarefa</Button>
+            <Button size="medium" variant="outlined">Cancelar</Button>
       </CardActions> 
     </Card>
     <div>
